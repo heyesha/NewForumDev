@@ -1,16 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NewForumDev.Application.Questions;
 using NewForumDev.Contracts;
+using NewForumDev.Contracts.Questions;
 
-namespace NewForumDev.Presenters.Controllers;
+namespace NewForumDev.Presenters.Questions;
 
 [ApiController]
 [Route("[controller]")]
 public class QuestionsController : ControllerBase
 {
+    private readonly IQuestionService _questionService;
+    public QuestionsController(IQuestionService questionService)
+    {
+        _questionService = questionService;
+    }
+    
     [HttpPost]
     public async Task<IActionResult> CreateAsync([FromBody] CreateQuestionDto request, CancellationToken cancellationToken)
     {
-        return Ok("question created");
+        var questionId = await _questionService.CreateAsync(request, cancellationToken);
+        return Ok(questionId);
     }
 
     [HttpGet]
