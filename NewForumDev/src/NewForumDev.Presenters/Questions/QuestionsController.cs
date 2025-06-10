@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NewForumDev.Application.Questions;
+using NewForumDev.Application.Questions.Interfaces;
 using NewForumDev.Contracts;
 using NewForumDev.Contracts.Questions;
 

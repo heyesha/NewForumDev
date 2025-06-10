@@ -9,6 +9,7 @@
     <ItemGroup>
       <ProjectReference Include="..\NewForumDev.Contracts\NewForumDev.Contracts.csproj" />
       <ProjectReference Include="..\NewForumDev.Domain\NewForumDev.Domain.csproj" />
+      <ProjectReference Include="..\Shared\Shared.csproj" />
     </ItemGroup>
 
     <ItemGroup>

@@ -1,6 +1,6 @@
 ﻿using NewForumDev.Contracts.Questions;
 
-namespace NewForumDev.Application.Questions;
+namespace NewForumDev.Application.Questions.Interfaces;
 
 public interface IQuestionService
 {
