@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using NewForumDev.Application.Questions;
+using NewForumDev.Application.Questions.Interfaces;
 
 namespace NewForumDev.Application;
 

@@ -14,6 +14,7 @@
     <ItemGroup>
       <ProjectReference Include="..\src\NewForumDev.Application\NewForumDev.Application.csproj" />
       <ProjectReference Include="..\src\NewForumDev.Domain\NewForumDev.Domain.csproj" />
+      <ProjectReference Include="..\src\NewForumDev.Infrastructure.PostgreSQL\NewForumDev.Infrastructure.PostgreSQL.csproj" />
       <ProjectReference Include="..\src\NewForumDev.Presenters\NewForumDev.Presenters.csproj" />
     </ItemGroup>
 

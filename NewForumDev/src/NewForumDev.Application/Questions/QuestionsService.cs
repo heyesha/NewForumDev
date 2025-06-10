@@ -1,7 +1,12 @@
 ﻿using FluentValidation;
 using Microsoft.Extensions.Logging;
+using NewForumDev.Application.Extenstions;
+using NewForumDev.Application.Questions.Fails;
+using NewForumDev.Application.Questions.Fails.Exceptions;
+using NewForumDev.Application.Questions.Interfaces;
 using NewForumDev.Contracts.Questions;
 using NewForumDev.Domain.Questions;
+using Shared;
 
 namespace NewForumDev.Application.Questions;
 
@@ -26,14 +31,14 @@ public class QuestionsService : IQuestionService
         var validationResult = await _validator.ValidateAsync(questionDto, cancellationToken);
         if (!validationResult.IsValid)
         {
-            throw new ValidationException(validationResult.Errors);
+            throw new QuestionValidationException(validationResult.ToErrors());
         }
         
         int openUserQuestionsCount = await _questionsRepository
             .GetOpenUserQuestionsAsync(questionDto.UserId, cancellationToken);
         if (openUserQuestionsCount > 3)
         {
-            throw new Exception("Пользователь не может открыть больше трёх вопросов.");
+            throw new TooManyQuestionsException();
         }
         
         var questionId = Guid.NewGuid();
